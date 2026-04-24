@@ -72,4 +72,12 @@ mod left_turn_tests {
         assert_eq!(expected_pose, executor.query());
     }
 
+    #[test]
+    fn should_return_heading_w_given_command_is_l_and_facing_is_n() {
+        let original_pose = Pose::new(0, 0, 'N');
+        let mut executor = Executor::with_pose(original_pose);
+        executor.execute("L");
+        let expected_pose = Pose::new(0, 0, 'W');
+        assert_eq!(expected_pose, executor.query());
+    }
 }
