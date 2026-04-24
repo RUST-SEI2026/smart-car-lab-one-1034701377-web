@@ -81,3 +81,16 @@ mod left_turn_tests {
         assert_eq!(expected_pose, executor.query());
     }
 }
+
+mod right_turn_tests {
+    use super::*;
+
+    #[test]
+    fn should_return_heading_s_given_command_is_r_and_facing_is_e() {
+        let original_pose = Pose::new(0, 0, 'E');
+        let mut executor = Executor::with_pose(original_pose);
+        executor.execute("R");
+        let expected_pose = Pose::new(0, 0, 'S');
+        assert_eq!(expected_pose, executor.query());
+    }
+}
